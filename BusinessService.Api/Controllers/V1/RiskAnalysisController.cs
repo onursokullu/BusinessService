@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using BusinessService.Contracts.Requests;
 using BusinessService.Data.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +14,7 @@ namespace BusinessService.Api.Controllers.V1
 
         public RiskAnalysisController(IRiskAnalysisService riskAnalysisService)
         {
-                _riskAnalysisService = riskAnalysisService;
+            _riskAnalysisService = riskAnalysisService;
         }
 
         [HttpGet]
@@ -26,6 +27,19 @@ namespace BusinessService.Api.Controllers.V1
             _logger.LogDebug("Success:GetRiskAnalysisList");
 
             return Ok(riskAnalysisList);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRiskAnalysis([Required][FromBody] CreateRiskAnalysisRequest createRiskAnalysisRequest)
+        {
+            _logger.LogDebug("Start:CreateRiskAnalysis");
+
+            var riskAnalysisList = await _riskAnalysisService.CreateRiskAnalysis(createRiskAnalysisRequest);
+
+            _logger.LogDebug("Success:CreateRiskAnalysis");
+
+            return Ok(riskAnalysisList);
+
         }
     }
 }

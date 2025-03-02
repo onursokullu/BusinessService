@@ -2,5 +2,6 @@
 {
     public class CreateRiskAnalysisResponse
     {
+        public Guid RiskAnalysisId { get; set; }
     }
 }
