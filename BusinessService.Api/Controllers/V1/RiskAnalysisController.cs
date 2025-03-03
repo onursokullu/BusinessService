@@ -12,12 +12,13 @@ namespace BusinessService.Api.Controllers.V1
         private readonly ILogger<RiskAnalysisController> _logger;
         private readonly IRiskAnalysisService _riskAnalysisService;
 
-        public RiskAnalysisController(IRiskAnalysisService riskAnalysisService)
+        public RiskAnalysisController(ILogger<RiskAnalysisController> logger, IRiskAnalysisService riskAnalysisService)
         {
+            _logger = logger;
             _riskAnalysisService = riskAnalysisService;
         }
 
-        [HttpGet]
+        [HttpGet("{businessTopicId}")]
         public async Task<IActionResult> GetRiskAnalysisList([Required][FromRoute] Guid businessTopicId)
         {
             _logger.LogDebug("Start:GetRiskAnalysisList");
@@ -29,7 +30,7 @@ namespace BusinessService.Api.Controllers.V1
             return Ok(riskAnalysisList);
         }
 
-        [HttpPost]
+        [HttpPost()]
         public async Task<IActionResult> CreateRiskAnalysis([Required][FromBody] CreateRiskAnalysisRequest createRiskAnalysisRequest)
         {
             _logger.LogDebug("Start:CreateRiskAnalysis");

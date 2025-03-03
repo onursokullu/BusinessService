@@ -2,6 +2,7 @@
 {
     public class CreateRiskAnalysisRequest
     {
+        public string Name { get; set; }
         public string RiskRuleName { get; set; }
         public Dictionary<string, decimal> RiskParameters { get; set; }
         public Guid BusinessTopicId { get; set; }

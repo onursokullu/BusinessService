@@ -42,7 +42,7 @@ namespace BusinessService.Logic.Services
             {
                 _logger.LogInformation("End: GetRiskAnalysisList. Fail. Risk analysis detail not found.");
 
-                throw new AppException(new AppError(HttpStatusCode.NotFound, "riskRuleNotFound", "Risk rule not found"));
+                throw new AppException(new AppError(HttpStatusCode.NotFound, "riskAnalysisNotFound", "Risk analysis not found"));
             }
 
             _logger.LogInformation("End: GetRiskAnalysisList.");
@@ -57,7 +57,6 @@ namespace BusinessService.Logic.Services
 
             }
         }
-
 
         public async Task<RiskAnalysisListResponse> GetRiskAnalysisDetail(Guid riskAnalysisId)
         {
