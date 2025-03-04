@@ -1,10 +1,10 @@
 using Arch.EntityFrameworkCore.UnitOfWork;
+using BusinessService.Api.Middlewares;
 using BusinessService.Contracts.Responses;
 using BusinessService.Data;
 using BusinessService.Data.Abstractions;
 using BusinessService.Data.Repositories;
 using BusinessService.Logic.Abstractions;
-using BusinessService.Logic.Errors.Common;
 using BusinessService.Logic.Profiles;
 using BusinessService.Logic.Services;
 using Microsoft.AspNetCore.OData;

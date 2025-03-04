@@ -1,7 +1,8 @@
 ﻿using System.Net;
+using BusinessService.Logic.Errors.Common;
 
 
-namespace BusinessService.Logic.Errors.Common
+namespace BusinessService.Api.Middlewares
 {
     public class ExceptionHandlingMiddleware
     {
